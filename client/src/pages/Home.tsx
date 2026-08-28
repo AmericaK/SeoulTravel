@@ -11,7 +11,7 @@ const extraImages = {
 const YEARS = new Date().getFullYear() - FOUNDED;
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
-  return <div className={`eyebrow ${light ? "eyebrow--light" : ""}`}><span className="eyebrow-line" />{children}</div>;
+  return <div className={`eyebrow ${light ? "eyebrow--light" : ""}`}>{children}</div>;
 }
 
 function DestinationCard({ item }: { item: typeof destinations[number] }) {
@@ -60,7 +60,7 @@ export default function Home() {
 
     <section className="services-band" id="services"><div className="container"><div className="section-head"><div><Eyebrow>여행 상품</Eyebrow><h2>어디로든,<br /><em>서울국제여행사</em>와 함께</h2></div><div className="section-head-right"><p>미주·유럽·중남미·아시아까지 폭넓은 여정.<br />분야를 선택하면 상담 신청으로 이어집니다.</p></div></div><div className="services-grid">{services.map((s) => <a className="service-card" href="#contact" key={s.label}><div className="service-photo"><img src={s.image} alt={s.label} /></div><div className="service-body"><h3>{s.label}</h3><p>{s.hint}</p><span className="service-go">상담 신청 <ArrowUpRight size={14} /></span></div></a>)}</div></div></section>
 
-    <section className="intro-section"><div className="container intro-layout"><div className="vertical-label"><span>SINCE {FOUNDED}</span><span>OUR PROMISE</span></div><div className="intro-copy"><Eyebrow>여행을 준비하는 방식</Eyebrow><h2>오래 지켜 온 신뢰가<br />좋은 여행을 <em>만듭니다.</em></h2><p>{YEARS}년 동안 미 동남부 한인과 함께하며 쌓아 온 경험으로, 지금 고객님께 꼭 맞는 여행과 항공권을 정성껏 안내해 드립니다.</p><a className="text-link" href="#contact">상담으로 시작하기 <ArrowUpRight size={16} /></a></div><div className="intro-aside"><Compass size={34} strokeWidth={1.2} /><p>목적지보다 먼저<br />고객의 여행을 생각합니다.</p></div></div></section>
+    <section className="intro-section"><div className="container intro-layout"><div className="vertical-label"><span>SINCE {FOUNDED}</span><span>OUR PROMISE</span></div><div className="intro-copy"><Eyebrow>여행을 준비하는 방식</Eyebrow><h2>오래 지켜 온 신뢰가<br />좋은 여행을 <em>만듭니다.</em></h2><p>{YEARS}년 동안 미 동남부 한인과 함께하며 쌓아 온 경험으로, 지금 고객님께 꼭 맞는 여행과 항공권을 정성껏 안내해 드립니다.</p><a className="text-link" href="#contact">상담으로 시작하기 <ArrowUpRight size={16} /></a></div><div className="intro-aside"><img src="/intro-photo.jpg" alt="여행을 준비하는 서울국제여행사" /></div></div></section>
 
     <section className="curated-section" id="curated"><div className="container section-head"><div><Eyebrow>추천 여행</Eyebrow><h2>이런 여행은<br /><em>어떠세요.</em></h2></div><div className="section-head-right"><p>대표 코스를 먼저 살펴보고<br />원하는 일정으로 상담해 보세요.</p><a className="text-link" href="#destinations">지역별 여행 보기 <ArrowRight size={16} /></a></div></div><div className="container curated-grid">{curatedTrips.map((trip) => <article className="curated-card" key={trip.index}><div className="curated-image"><img src={trip.image} alt={trip.title} /><span>{trip.index}</span></div><div className="curated-copy"><Eyebrow>{trip.eyebrow}</Eyebrow><h3>{trip.title}</h3><p>{trip.description}</p><a href="#contact">{trip.tag} <ArrowUpRight size={15} /></a></div></article>)}</div></section>
 
