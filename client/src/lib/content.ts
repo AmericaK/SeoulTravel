@@ -28,12 +28,12 @@ export const navItems = [
 
 /* 여행 상품 카테고리 — 실제 취급 분야. 모두 상담으로 연결 */
 export const services = [
-  { icon: "Mountain",    label: "미국·캐나다 관광", hint: "미서부 캐년·요세미티, 미동부 뉴욕·나이아가라, 캐나다 록키" },
-  { icon: "Ship",        label: "중남미·크루즈",   hint: "멕시코·캔쿤, 페루, 쿠바, 코스타리카, 크루즈 여행" },
-  { icon: "Landmark",    label: "유럽 특선",       hint: "서유럽·동유럽·북유럽 정통 및 실속 코스" },
-  { icon: "Plane",       label: "아시아·한국",     hint: "한국(고국방문), 일본, 중국, 동남아시아" },
-  { icon: "Ticket",      label: "최저가 항공권",   hint: "대한항공·델타 공식대리점 · ARC 정식 대리점" },
-  { icon: "Stethoscope", label: "고국방문 건강검진", hint: "한국 방문 일정에 맞춘 종합 건강검진 안내" },
+  { image: "/svc-usa.jpg",    label: "미국·캐나다 관광", hint: "미서부 캐년·요세미티, 미동부 뉴욕·나이아가라, 캐나다 록키" },
+  { image: "/svc-latam.jpg",  label: "중남미·크루즈",   hint: "멕시코·캔쿤, 페루, 쿠바, 코스타리카, 크루즈 여행" },
+  { image: "/svc-europe.jpg", label: "유럽 특선",       hint: "서유럽·동유럽·북유럽 정통 및 실속 코스" },
+  { image: "/svc-asia.jpg",   label: "아시아·한국",     hint: "한국(고국방문), 일본, 중국, 동남아시아" },
+  { image: "/svc-air.jpg",    label: "최저가 항공권",   hint: "대한항공·델타 공식대리점 · ARC 정식 대리점" },
+  { image: "/svc-health.jpg", label: "고국방문 건강검진", hint: "한국 방문 일정에 맞춘 종합 건강검진 안내" },
 ];
 
 /* 상담 신청 폼 — 관심 분야 */
