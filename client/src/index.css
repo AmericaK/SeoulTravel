@@ -27,9 +27,9 @@ img { display: block; max-width: 100%; }
 .desktop-nav { display: flex; align-items: center; gap: 32px; font-size: 12px; color: #3d444a; }
 .desktop-nav a, .header-search { transition: color 180ms ease; }
 .desktop-nav a:hover, .header-search:hover { color: var(--vermilion); }
-.header-actions { width: 210px; display: flex; justify-content: flex-end; align-items: center; gap: 17px; }
+.header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 16px; white-space: nowrap; }
 .header-search { display: inline-flex; gap: 7px; align-items: center; border: 0; background: transparent; color: var(--ink); font-size: 12px; }
-.header-cta, .primary-button { display: inline-flex; align-items: center; gap: 12px; background: var(--vermilion); color: white; padding: 14px 18px; font-size: 12px; font-weight: 700; letter-spacing: .02em; transition: background 180ms ease, transform 160ms ease; }
+.header-cta, .primary-button { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; background: var(--vermilion); color: white; padding: 14px 18px; font-size: 12px; font-weight: 700; letter-spacing: .02em; transition: background 180ms ease, transform 160ms ease; }
 .header-cta:hover, .primary-button:hover { background: var(--vermilion-dark); transform: translateY(-2px); }
 .mobile-menu { display: none; border: 0; background: transparent; }
 .mobile-nav { display: none; }
@@ -191,3 +191,57 @@ img { display: block; max-width: 100%; }
 .destination-note p { max-width: 440px; margin: 0 0 25px; color: var(--muted); font-size: 13px; line-height: 1.8; }
 @media (max-width: 900px) { .destinations-mast-inner { min-height: 420px; grid-template-columns: 1fr; gap: 27px; padding: 58px 0; } .chapter-code { flex-direction: row; justify-content: flex-start; gap: 24px; } .mast-route { position: absolute; right: 0; bottom: 63px; } .destination-index-section { padding: 52px 0 75px; } .guide-panel { flex-wrap: wrap; } .guide-panel span { width: 100%; } .destination-index-grid { gap: 42px 15px; } .index-card-media { height: 300px; } .destination-note-inner { grid-template-columns: 1fr; gap: 28px; padding: 66px 0 75px; } }
 @media (max-width: 520px) { .mast-copy h1 { font-size: 49px; } .mast-copy p { font-size: 13px; } .mast-route { display: none; } .index-toolbar { align-items: flex-start; gap: 12px; } .destination-index-grid { grid-template-columns: 1fr; } .index-card-media { height: 350px; } }
+
+/* ===== 상담 중심 개편 추가 스타일 ===== */
+.header-phone { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.header-phone svg { color: var(--vermilion); }
+.utility-inner a { display: inline-flex; align-items: center; gap: 6px; color: inherit; }
+
+.inquiry-form { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) auto; min-height: 66px; border: 1px solid #bfc2bf; background: var(--rice); }
+.inquiry-form .search-field { border-right: 1px solid var(--line); min-width: 0; }
+.inquiry-form .search-field label { white-space: nowrap; }
+.inquiry-form .search-field input, .inquiry-form .search-field select { min-width: 0; text-overflow: ellipsis; }
+.inquiry-form .search-field select { border: 0; background: transparent; padding: 0; color: var(--ink); font-size: 13px; outline: 0; width: 100%; -webkit-appearance: none; appearance: none; }
+
+.services-band { padding: 96px 0; background: var(--paper); border-top: 1px solid var(--line); }
+.services-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.service-card { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 30px 28px; border: 1px solid var(--line); background: var(--rice); transition: border-color 180ms ease, transform 160ms ease, box-shadow 180ms ease; }
+.service-card:hover { border-color: var(--vermilion); transform: translateY(-3px); box-shadow: 0 14px 34px rgba(23,32,42,.08); }
+.service-ico { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: rgba(233,72,53,.1); color: var(--vermilion); }
+.service-card h3 { font-family: "Noto Serif KR", Georgia, serif; font-size: 20px; font-weight: 600; letter-spacing: -.04em; }
+.service-card p { color: var(--muted); font-size: 13px; line-height: 1.6; }
+.service-go { margin-top: auto; display: inline-flex; align-items: center; gap: 7px; color: var(--vermilion); font-size: 11px; font-weight: 700; letter-spacing: .04em; }
+
+.contact-layout { display: grid; grid-template-columns: 1fr 1.05fr; gap: 60px; align-items: center; }
+.contact-intro p { margin-top: 17px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.contact-channels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.channel { display: flex; align-items: center; gap: 15px; padding: 22px 24px; background: var(--paper); border: 1px solid var(--line); transition: border-color 180ms ease, transform 160ms ease; }
+.channel:not(.channel--static):hover { border-color: var(--vermilion); transform: translateY(-2px); }
+.channel svg { color: var(--vermilion); flex-shrink: 0; }
+.channel span { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--ink); }
+.channel b { font-size: 10px; letter-spacing: .1em; color: var(--muted); font-weight: 700; text-transform: uppercase; }
+
+.footer-contact { margin-top: 22px; display: flex; flex-direction: column; gap: 9px; }
+.footer-contact a { display: inline-flex; align-items: center; gap: 8px; color: rgba(255,255,255,.72); font-size: 13px; }
+.footer-contact a:hover { color: #fff; }
+.footer-contact svg { color: #ff9b8b; }
+.footer-bizinfo { padding: 22px 0 0; color: rgba(255,255,255,.4); font-size: 11px; line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .header-phone { display: none; }
+  .inquiry-form { grid-template-columns: 1fr 1fr; }
+  .inquiry-form .search-submit { grid-column: 1 / -1; min-height: 58px; justify-content: center; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .contact-layout { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 520px) {
+  .inquiry-form { grid-template-columns: 1fr; }
+  .services-grid { grid-template-columns: 1fr; }
+  .contact-channels { grid-template-columns: 1fr; }
+}
+
+/* ===== 1972 회사 소개 / 공식대리점 ===== */
+.theme-item--static { grid-template-columns: 50px 1fr; }
+.agent-badges { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
+.agent-badges span { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: rgba(255,255,255,.82); font-size: 11px; font-weight: 600; letter-spacing: .01em; }
+.agent-badges svg { color: #ff9b8b; }
