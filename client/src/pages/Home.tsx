@@ -1,12 +1,15 @@
-/** Seoul Field Guide home: search-led discovery, asymmetric editorial rails, honest sample content, and vermilion action signals. */
+/** 서울국제여행사 home — 1972년 창립 미주 한인 여행 전문. 상담 중심, 가격/예약 없음. */
 import { useMemo, useState } from "react";
-import { ArrowRight, ArrowUpRight, CalendarDays, Check, ChevronDown, Clock3, Compass, Heart, MapPin, Search, SlidersHorizontal, Sparkles } from "lucide-react";
-import { assets, curatedTrips, destinationTabs, destinations, themes } from "@/lib/content";
+import { ArrowRight, ArrowUpRight, CalendarDays, Clock3, Compass, Landmark, MailOpen, MapPin, Mountain, Phone, Plane, ShieldCheck, Ship, Sparkles, Stethoscope, Ticket, User, Users } from "lucide-react";
+import { assets, contact, curatedTrips, destinationTabs, destinations, FOUNDED, inquiryTopics, pillars, services } from "@/lib/content";
 
 const extraImages = {
   americas: "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1100&q=85",
   latam: "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1100&q=85",
 };
+
+const serviceIcons: Record<string, typeof Compass> = { Mountain, Ship, Landmark, Plane, Ticket, Stethoscope };
+const YEARS = new Date().getFullYear() - FOUNDED;
 
 function Eyebrow({ children, light = false }: { children: React.ReactNode; light?: boolean }) {
   return <div className={`eyebrow ${light ? "eyebrow--light" : ""}`}><span className="eyebrow-line" />{children}</div>;
@@ -15,40 +18,59 @@ function Eyebrow({ children, light = false }: { children: React.ReactNode; light
 function DestinationCard({ item }: { item: typeof destinations[number] }) {
   const image = item.id === "americas" ? extraImages.americas : item.id === "latam" ? extraImages.latam : item.image;
   return <article className="destination-card">
-    <div className="destination-image"><img src={image} alt={`${item.region} 여행 풍경`} /><button type="button" className="save-button" aria-label="여행지 찜하기"><Heart size={17} /></button><span className="destination-index">{item.region}</span></div>
-    <div className="destination-card-copy"><div><h3>{item.title}</h3><p>{item.subtitle}</p></div><span className="destination-meta">{item.meta}</span><button className="circle-arrow" type="button" aria-label={`${item.title} 살펴보기`}><ArrowUpRight size={18} /></button></div>
+    <div className="destination-image"><img src={image} alt={`${item.region} 여행`} /><span className="destination-index">{item.region}</span></div>
+    <div className="destination-card-copy"><div><h3>{item.title}</h3><p>{item.subtitle}</p></div><span className="destination-meta">{item.meta}</span><a className="circle-arrow" href="#contact" aria-label={`${item.title} 상담 신청`}><ArrowUpRight size={18} /></a></div>
   </article>;
 }
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("all");
-  const [query, setQuery] = useState("");
-  const [submittedQuery, setSubmittedQuery] = useState("");
+  const [topic, setTopic] = useState(inquiryTopics[0]);
+  const [when, setWhen] = useState("");
+  const [people, setPeople] = useState("");
+  const [name, setName] = useState("");
+  const [tel, setTel] = useState("");
   const filtered = useMemo(() => activeTab === "all" ? destinations : destinations.filter((item) => item.id === activeTab), [activeTab]);
-  const handleSearch = (event: React.FormEvent) => { event.preventDefault(); setSubmittedQuery(query.trim()); document.getElementById("destinations")?.scrollIntoView({ behavior: "smooth" }); };
+
+  const submitInquiry = (event: React.FormEvent) => {
+    event.preventDefault();
+    const subject = `[여행 상담] ${topic}${name ? ` - ${name}` : ""}`;
+    const body = [`관심 분야: ${topic}`, `여행 시기: ${when || "-"}`, `인원: ${people || "-"}`, `성함: ${name || "-"}`, `연락처: ${tel || "-"}`, "", "문의 내용:", ""].join("\n");
+    window.location.href = `mailto:${contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return <main>
     <section className="travel-hero">
-      <img className="hero-image" src={assets.hero} alt="한강과 서울의 저녁 풍경" />
+      <img className="hero-image" src={assets.hero} alt="서울국제여행사" />
       <div className="hero-overlay" />
       <div className="container hero-content">
-        <div className="hero-kicker"><span>SEOUL TRAVEL INTERNATIONAL</span><span>EST. 2008</span></div>
-        <div className="hero-copy"><Eyebrow light>여행의 방향을 찾는 시간</Eyebrow><h1>다음 여행의 방향을,<br /><em>서울에서.</em></h1><p>도시를 아는 사람의 시선으로 고른 여행.<br />당신의 다음 장면을 더 선명하게 만듭니다.</p></div>
-        <div className="hero-bottom"><span className="hero-location"><MapPin size={15} /> SEOUL, KOREA</span><span className="hero-scroll">SCROLL TO EXPLORE <ArrowDownGlyph /></span></div>
+        <div className="hero-kicker"><span>SEOUL TRAVEL INTERNATIONAL</span><span>SINCE {FOUNDED}</span></div>
+        <div className="hero-copy"><Eyebrow light>미주 한인 여행 전문</Eyebrow><h1>미주 한인과 함께,<br /><em>{YEARS}년의 여행.</em></h1><p>{FOUNDED}년부터 미 동남부 한인 곁에서,<br />믿음직한 여행과 합리적인 항공권으로 함께해 왔습니다.</p></div>
+        <div className="hero-bottom"><span className="hero-location"><Phone size={15} /> {contact.phone}</span><span className="hero-scroll"><a href="#contact">여행 상담 신청 <ArrowDownGlyph /></a></span></div>
       </div>
     </section>
 
-    <section className="search-rail" id="packages"><div className="container search-rail-inner"><div className="search-rail-label"><span className="rail-number">01</span><div><Eyebrow>여행 검색</Eyebrow><strong>어디로 떠나볼까요?</strong></div></div><form className="trip-search" onSubmit={handleSearch}><div className="search-field search-field--destination"><Search size={19} /><label htmlFor="search">목적지 또는 상품명을 입력하세요</label><input id="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="예: 유럽, 서울, 캐나다" /></div><div className="search-field"><CalendarDays size={18} /><label>여행 기간</label><button type="button">기간을 선택하세요 <ChevronDown size={15} /></button></div><button className="search-submit" type="submit">검색하기 <ArrowUpRight size={17} /></button></form></div></section>
+    <section className="search-rail" id="packages"><div className="container search-rail-inner inquiry-rail"><div className="search-rail-label"><span className="rail-number">01</span><div><Eyebrow>여행 상담 신청</Eyebrow><strong>어떤 여행을 계획 중이신가요?</strong></div></div><form className="inquiry-form" onSubmit={submitInquiry}>
+      <div className="search-field"><Compass size={18} /><label htmlFor="topic">관심 분야</label><select id="topic" value={topic} onChange={(e) => setTopic(e.target.value)}>{inquiryTopics.map((t) => <option key={t} value={t}>{t}</option>)}</select></div>
+      <div className="search-field"><CalendarDays size={18} /><label htmlFor="when">여행 시기</label><input id="when" value={when} onChange={(e) => setWhen(e.target.value)} placeholder="예: 2026년 5월" /></div>
+      <div className="search-field"><Users size={18} /><label htmlFor="people">인원</label><input id="people" value={people} onChange={(e) => setPeople(e.target.value)} placeholder="예: 성인 2명" /></div>
+      <div className="search-field"><User size={18} /><label htmlFor="name">성함</label><input id="name" value={name} onChange={(e) => setName(e.target.value)} placeholder="홍길동" /></div>
+      <div className="search-field"><Phone size={18} /><label htmlFor="tel">연락처</label><input id="tel" value={tel} onChange={(e) => setTel(e.target.value)} placeholder="연락 가능한 번호" /></div>
+      <button className="search-submit" type="submit">상담 신청 <ArrowUpRight size={17} /></button>
+    </form></div></section>
 
-    <section className="intro-section"><div className="container intro-layout"><div className="vertical-label"><span>SEOUL TRAVEL</span><span>OUR APPROACH</span></div><div className="intro-copy"><Eyebrow>여행을 고르는 새로운 기준</Eyebrow><h2>잘 고른 여행은<br />도착하기 전부터 <em>시작됩니다.</em></h2><p>수많은 선택지 대신, 지금의 당신에게 필요한 방향을 먼저 생각합니다. 서울에서 시작해 세계로 이어지는 여행의 첫 장면을 만나보세요.</p><a className="text-link" href="#guide">서울여행이 고르는 방식 <ArrowUpRight size={16} /></a></div><div className="intro-aside"><span>02 / 04</span><Compass size={34} strokeWidth={1.2} /><p>목적지보다 먼저<br />여행의 이유를 찾습니다.</p></div></div></section>
+    <section className="services-band" id="services"><div className="container"><div className="section-head"><div><Eyebrow>여행 상품</Eyebrow><h2>어디로든,<br /><em>서울국제여행사</em>와.</h2></div><div className="section-head-right"><p>미주·유럽·중남미·아시아까지 폭넓은 여정.<br />분야를 선택하면 상담 신청으로 이어집니다.</p></div></div><div className="services-grid">{services.map((s) => { const Icon = serviceIcons[s.icon] ?? Compass; return <a className="service-card" href="#contact" key={s.label}><span className="service-ico"><Icon size={22} strokeWidth={1.6} /></span><h3>{s.label}</h3><p>{s.hint}</p><span className="service-go">상담 신청 <ArrowUpRight size={14} /></span></a>; })}</div></div></section>
 
-    <section className="curated-section" id="curated"><div className="container section-head"><div><Eyebrow>이번 달의 편집</Eyebrow><h2>여행의 <em>장면</em>을<br />고르는 일.</h2></div><div className="section-head-right"><p>계절과 취향, 함께 떠나는 사람에 따라<br />이번 여행의 장면을 골라보세요.</p><a className="text-link" href="#destinations">전체 여행지 보기 <ArrowRight size={16} /></a></div></div><div className="container curated-grid">{curatedTrips.map((trip) => <article className="curated-card" key={trip.index}><div className="curated-image"><img src={trip.image} alt={trip.title} /><span>{trip.index}</span></div><div className="curated-copy"><Eyebrow>{trip.eyebrow}</Eyebrow><h3>{trip.title}</h3><p>{trip.description}</p><a href="#contact">{trip.tag} <ArrowUpRight size={15} /></a></div></article>)}</div></section>
+    <section className="intro-section"><div className="container intro-layout"><div className="vertical-label"><span>SINCE {FOUNDED}</span><span>OUR PROMISE</span></div><div className="intro-copy"><Eyebrow>여행을 준비하는 방식</Eyebrow><h2>오래 지켜 온 신뢰가<br />좋은 여행을 <em>만듭니다.</em></h2><p>{YEARS}년 동안 미 동남부 한인과 함께하며 쌓아 온 경험으로, 지금 고객님께 꼭 맞는 여행과 항공권을 정성껏 안내해 드립니다.</p><a className="text-link" href="#contact">상담으로 시작하기 <ArrowUpRight size={16} /></a></div><div className="intro-aside"><span>02 / 04</span><Compass size={34} strokeWidth={1.2} /><p>목적지보다 먼저<br />고객의 여행을 생각합니다.</p></div></div></section>
 
-    <section className="destinations-section" id="destinations"><div className="container"><div className="destination-heading"><div><Eyebrow>DESTINATIONS</Eyebrow><h2>가고 싶은 곳을<br /><em>다시 발견하는 법.</em></h2></div><div className="heading-note"><span>03 / 04</span><p>서울여행이 고른 지역별<br />첫 번째 여행의 이유</p></div></div><div className="destination-tabs" role="tablist" aria-label="여행지 지역 필터">{destinationTabs.map((tab) => <button key={tab.id} className={activeTab === tab.id ? "is-active" : ""} onClick={() => setActiveTab(tab.id)} role="tab" aria-selected={activeTab === tab.id}>{tab.label}<small>{tab.count}</small></button>)}</div>{submittedQuery && <div className="search-result-note"><Check size={16} /> “{submittedQuery}”에 맞는 여행지를 둘러보고 있어요. <button onClick={() => { setSubmittedQuery(""); setQuery(""); }}>검색 초기화</button></div>}<div className="destination-grid">{filtered.map((item) => <DestinationCard item={item} key={item.id} />)}</div></div></section>
+    <section className="curated-section" id="curated"><div className="container section-head"><div><Eyebrow>추천 여행</Eyebrow><h2>이런 여행은<br /><em>어떠세요.</em></h2></div><div className="section-head-right"><p>대표 코스를 먼저 살펴보고<br />원하는 일정으로 상담해 보세요.</p><a className="text-link" href="#destinations">지역별 여행 보기 <ArrowRight size={16} /></a></div></div><div className="container curated-grid">{curatedTrips.map((trip) => <article className="curated-card" key={trip.index}><div className="curated-image"><img src={trip.image} alt={trip.title} /><span>{trip.index}</span></div><div className="curated-copy"><Eyebrow>{trip.eyebrow}</Eyebrow><h3>{trip.title}</h3><p>{trip.description}</p><a href="#contact">{trip.tag} <ArrowUpRight size={15} /></a></div></article>)}</div></section>
 
-    <section className="theme-section" id="guide"><div className="container theme-layout"><div className="theme-intro"><Eyebrow light>TRAVEL BY FEELING</Eyebrow><h2>이번 여행,<br /><em>어떤 마음으로</em><br />떠나나요?</h2><p>여행의 목적이 분명해지면, 선택은 더 쉬워집니다.</p></div><div className="theme-list">{themes.map(([number, title, detail]) => <button type="button" className="theme-item" key={number}><span>{number}</span><div><h3>{title}</h3><p>{detail}</p></div><ArrowUpRight size={19} /></button>)}</div></div></section>
+    <section className="destinations-section" id="destinations"><div className="container"><div className="destination-heading"><div><Eyebrow>DESTINATIONS</Eyebrow><h2>가고 싶은 곳을<br /><em>지역별로.</em></h2></div><div className="heading-note"><span>03 / 04</span><p>지역을 살펴보고<br />상담으로 이어가세요</p></div></div><div className="destination-tabs" role="tablist" aria-label="여행지 지역 필터">{destinationTabs.map((tab) => <button key={tab.id} className={activeTab === tab.id ? "is-active" : ""} onClick={() => setActiveTab(tab.id)} role="tab" aria-selected={activeTab === tab.id}>{tab.label}<small>{tab.count}</small></button>)}</div><div className="destination-grid">{filtered.map((item) => <DestinationCard item={item} key={item.id} />)}</div></div></section>
 
-    <section className="contact-cta" id="contact"><div className="container contact-cta-inner"><div><Eyebrow>TRAVEL DESK</Eyebrow><h2>아직 정해지지 않아도<br /><em>괜찮습니다.</em></h2><p>여행의 이유와 기간, 함께하는 사람을 알려주세요.<br />서울여행이 다음 방향을 함께 찾아드립니다.</p></div><div className="cta-actions"><a className="primary-button" href="mailto:seoultravel@gmail.com">상담 문의하기 <ArrowUpRight size={17} /></a><span><Clock3 size={15} /> 상담 후 상품 및 일정 안내</span></div></div></section>
-    <div className="trust-strip"><div className="container trust-inner"><span><Sparkles size={16} /> SEOUL TRAVEL INTERNATIONAL</span><span>여행을 더 명확하게 고르는 방법</span><span>770-458-2242&nbsp;&nbsp; · &nbsp;&nbsp;seoultravel@gmail.com</span></div></div>
+    <section className="theme-section" id="about"><div className="container theme-layout"><div className="theme-intro"><Eyebrow light>WHY SEOUL TRAVEL</Eyebrow><h2>미주 한인이<br /><em>믿고 찾는</em><br />이유.</h2><p>{FOUNDED}년 창립 이래 지켜 온 세 가지 약속입니다.</p><div className="agent-badges"><span><ShieldCheck size={15} /> 대한항공 공식대리점</span><span><ShieldCheck size={15} /> 델타항공 공식대리점</span><span><ShieldCheck size={15} /> ARC 정식 대리점</span></div></div><div className="theme-list">{pillars.map(([number, title, detail]) => <div className="theme-item theme-item--static" key={number}><span>{number}</span><div><h3>{title}</h3><p>{detail}</p></div></div>)}</div></div></section>
+
+    <section className="contact-cta" id="contact"><div className="container contact-layout"><div className="contact-intro"><Eyebrow>고객센터 · 여행 상담</Eyebrow><h2>여행, 어렵게<br /><em>생각 마세요.</em></h2><p>여행 시기와 인원, 가고 싶은 곳만 알려주세요.<br />항공권부터 일정까지 서울국제여행사가 함께 준비합니다.</p></div><div className="contact-channels"><a className="channel" href={contact.phoneHref}><Phone size={20} /><span><b>전화 상담</b>{contact.phone}</span></a><a className="channel" href={`mailto:${contact.email}`}><MailOpen size={20} /><span><b>이메일 문의</b>{contact.email}</span></a><a className="channel" href={contact.mapUrl} target="_blank" rel="noreferrer"><MapPin size={20} /><span><b>오시는 길</b>Suwanee, GA</span></a><div className="channel channel--static"><Clock3 size={20} /><span><b>상담 안내</b>{contact.hours}</span></div></div></div></section>
+    <div className="trust-strip"><div className="container trust-inner"><span><Sparkles size={16} /> SEOUL TRAVEL INTERNATIONAL</span><span>1972년부터 함께한 미주 한인 여행</span><span>{contact.phone}&nbsp;&nbsp; · &nbsp;&nbsp;{contact.email}</span></div></div>
   </main>;
 }
 
