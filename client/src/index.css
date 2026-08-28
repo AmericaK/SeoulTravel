@@ -33,7 +33,7 @@ img { display: block; max-width: 100%; }
 .header-cta:hover, .primary-button:hover { background: var(--vermilion-dark); transform: translateY(-2px); }
 .mobile-menu { display: none; border: 0; background: transparent; }
 .mobile-nav { display: none; }
-.eyebrow { display: flex; align-items: center; color: var(--vermilion); font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.eyebrow { display: flex; align-items: center; color: var(--vermilion); font-size: 15px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .eyebrow--light { color: rgba(255,255,255,.78); }
 .eyebrow-line { display: inline-block; width: 24px; height: 1px; background: currentColor; }
 .travel-hero { min-height: 670px; position: relative; color: white; overflow: hidden; }
@@ -42,7 +42,7 @@ img { display: block; max-width: 100%; }
 .hero-content { position: relative; min-height: 670px; display: flex; flex-direction: column; justify-content: space-between; padding-top: 26px; padding-bottom: 29px; }
 .hero-kicker, .hero-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 10px; letter-spacing: .16em; color: rgba(255,255,255,.72); }
 .hero-copy { max-width: 650px; margin-top: 70px; }
-.hero-copy h1 { margin: 24px 0 20px; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(38px, 4.8vw, 64px); font-weight: 500; letter-spacing: -.06em; line-height: 1.05; white-space: nowrap; }
+.hero-copy h1 { margin: 24px 0 20px; font-family: "Nanum Myeongjo", serif; font-size: clamp(38px, 4.8vw, 64px); font-weight: 500; letter-spacing: -.06em; line-height: 1.05; white-space: nowrap; }
 .hero-copy h1 em { color: #ffb8a8; font-style: normal; }
 .hero-copy p { margin: 0; color: rgba(255,255,255,.77); font-size: 15px; line-height: 1.8; }
 .hero-location, .hero-scroll { display: flex; align-items: center; gap: 8px; }
@@ -51,7 +51,7 @@ img { display: block; max-width: 100%; }
 .search-rail-inner { min-height: 148px; display: grid; grid-template-columns: 235px 1fr; align-items: center; gap: 30px; }
 .search-rail-label { display: flex; align-items: flex-start; gap: 20px; }
 .rail-number { color: var(--vermilion); font-size: 11px; letter-spacing: .14em; }
-.search-rail-label strong { display: block; margin-top: 11px; font-family: "Noto Serif KR", Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -.04em; }
+.search-rail-label strong { display: block; margin-top: 11px; font-family: "Nanum Myeongjo", serif; font-size: 21px; font-weight: 500; letter-spacing: -.04em; }
 .trip-search { display: grid; grid-template-columns: 1.6fr 1fr auto; min-height: 66px; border: 1px solid #bfc2bf; background: var(--rice); }
 .search-field { display: grid; grid-template-columns: 22px 1fr; grid-template-rows: 19px 21px; align-content: center; gap: 1px 9px; padding: 0 18px; border-right: 1px solid var(--line); }
 .search-field svg { grid-row: 1 / span 2; align-self: center; color: var(--river); }
@@ -64,7 +64,7 @@ img { display: block; max-width: 100%; }
 .intro-layout { display: grid; grid-template-columns: 150px 1fr 320px; min-height: 520px; }
 .vertical-label { display: flex; flex-direction: column; justify-content: space-between; padding: 32px 0; color: #879097; font-size: 9px; letter-spacing: .16em; writing-mode: vertical-rl; transform: rotate(180deg); border-right: 1px solid var(--line); }
 .intro-copy { max-width: 660px; padding: 88px 3.5vw 72px; }
-.intro-copy h2, .section-head h2, .destination-heading h2, .theme-intro h2, .contact-cta h2 { margin: 24px 0; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(35px, 4vw, 57px); font-weight: 500; line-height: 1.16; letter-spacing: -.075em; }
+.intro-copy h2, .section-head h2, .destination-heading h2, .theme-intro h2, .contact-cta h2 { margin: 24px 0; font-family: "Nanum Myeongjo", serif; font-size: clamp(35px, 4vw, 57px); font-weight: 500; line-height: 1.16; letter-spacing: -.075em; }
 .intro-copy h2 em, .section-head h2 em, .destination-heading h2 em, .theme-intro h2 em, .contact-cta h2 em { color: var(--vermilion); font-style: normal; }
 .intro-copy p { max-width: 430px; margin: 0 0 28px; color: var(--muted); font-size: 14px; line-height: 1.9; }
 .text-link { display: inline-flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--ink); padding-bottom: 7px; font-size: 11px; font-weight: 700; transition: color 180ms ease, gap 180ms ease; }
@@ -85,7 +85,7 @@ img { display: block; max-width: 100%; }
 .curated-card:hover .curated-image img { transform: scale(1.04); }
 .curated-image span { position: absolute; left: 17px; bottom: 15px; color: white; font-size: 11px; letter-spacing: .14em; text-shadow: 0 1px 9px #1b2022; }
 .curated-copy { padding: 21px 3px; }
-.curated-copy h3 { margin: 17px 0 12px; font-family: "Noto Serif KR", Georgia, serif; font-size: 23px; font-weight: 500; letter-spacing: -.06em; line-height: 1.3; }
+.curated-copy h3 { margin: 17px 0 12px; font-family: "Nanum Myeongjo", serif; font-size: 23px; font-weight: 500; letter-spacing: -.06em; line-height: 1.3; }
 .curated-copy p { min-height: 46px; margin: 0 0 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .curated-copy a { display: inline-flex; align-items: center; gap: 8px; color: var(--vermilion); font-size: 11px; font-weight: 700; }
 .destinations-section { padding: 105px 0 124px; background: var(--paper); border-top: 1px solid var(--line); }
@@ -106,7 +106,7 @@ img { display: block; max-width: 100%; }
 .destination-index { position: absolute; left: 15px; bottom: 14px; color: white; font-size: 9px; letter-spacing: .13em; text-shadow: 0 1px 6px #243039; }
 .destination-card-copy { position: relative; padding: 17px 0 0; min-height: 104px; border-bottom: 1px solid var(--line); }
 .destination-card-copy::before { content: ""; position: absolute; top: -1px; left: 0; width: 30px; height: 2px; background: var(--river); }
-.destination-card h3 { margin: 0 0 5px; font-family: "Noto Serif KR", Georgia, serif; font-size: 21px; font-weight: 500; letter-spacing: -.06em; }
+.destination-card h3 { margin: 0 0 5px; font-family: "Nanum Myeongjo", serif; font-size: 21px; font-weight: 500; letter-spacing: -.06em; }
 .destination-card p { margin: 0; color: var(--muted); font-size: 12px; }
 .destination-meta { display: block; margin-top: 18px; color: var(--river); font-size: 10px; letter-spacing: .06em; }
 .circle-arrow { position: absolute; right: 0; bottom: 12px; display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); transition: all 180ms ease; }
@@ -118,7 +118,7 @@ img { display: block; max-width: 100%; }
 .theme-list { border-top: 1px solid rgba(255,255,255,.24); }
 .theme-item { display: grid; grid-template-columns: 50px 1fr 22px; gap: 20px; width: 100%; padding: 25px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,.24); background: transparent; color: white; text-align: left; }
 .theme-item > span { color: #ff9b8b; font-size: 11px; letter-spacing: .13em; }
-.theme-item h3 { margin: 0 0 7px; font-family: "Noto Serif KR", Georgia, serif; font-size: 23px; font-weight: 500; letter-spacing: -.05em; }
+.theme-item h3 { margin: 0 0 7px; font-family: "Nanum Myeongjo", serif; font-size: 23px; font-weight: 500; letter-spacing: -.05em; }
 .theme-item p { margin: 0; color: rgba(255,255,255,.52); font-size: 12px; }
 .theme-item svg { align-self: center; transition: transform 180ms ease; }
 .theme-item:hover svg { transform: translate(4px,-4px); color: #ff9b8b; }
@@ -136,7 +136,7 @@ img { display: block; max-width: 100%; }
 .footer-brand { display: inline-flex; align-items: center; gap: 10px; color: white; font-size: 17px; letter-spacing: .08em; }
 .footer-brand { align-items: flex-start; }
 .footer-logo { height: 34px; width: auto; background: #fff; padding: 7px 10px; border-radius: 7px; }
-.footer-grid > div:first-child p { margin-top: 27px; color: rgba(255,255,255,.45); font-family: "Noto Serif KR", Georgia, serif; font-size: 19px; line-height: 1.45; letter-spacing: -.06em; }
+.footer-grid > div:first-child p { margin-top: 27px; color: rgba(255,255,255,.45); font-family: "Nanum Myeongjo", serif; font-size: 19px; line-height: 1.45; letter-spacing: -.06em; }
 .footer-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
 .footer-links div { display: flex; flex-direction: column; gap: 15px; }
 .footer-links b { margin-bottom: 10px; color: #ff9b8b; font-size: 10px; letter-spacing: .16em; }
@@ -152,7 +152,7 @@ img { display: block; max-width: 100%; }
 .destinations-mast-inner { min-height: 390px; position: relative; display: grid; grid-template-columns: 160px 1fr 230px; gap: 40px; padding: 76px 0 67px; }
 .chapter-code { display: flex; flex-direction: column; justify-content: space-between; color: var(--muted); font-size: 10px; letter-spacing: .14em; }
 .chapter-code span:first-child { color: var(--vermilion); }
-.mast-copy h1 { margin: 23px 0 0; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(50px, 6vw, 82px); font-weight: 500; letter-spacing: -.08em; line-height: 1.06; }
+.mast-copy h1 { margin: 23px 0 0; font-family: "Nanum Myeongjo", serif; font-size: clamp(50px, 6vw, 82px); font-weight: 500; letter-spacing: -.08em; line-height: 1.06; }
 .mast-copy h1 em { color: var(--vermilion); font-style: normal; }
 .mast-copy p { margin: 27px 0 0; color: var(--muted); font-size: 14px; line-height: 1.8; }
 .mast-route { display: flex; align-items: center; gap: 12px; align-self: end; color: var(--river); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
@@ -177,7 +177,7 @@ img { display: block; max-width: 100%; }
 .index-card-body { padding: 20px 0 0; border-bottom: 1px solid var(--line); }
 .card-route-meta { display: inline-flex; align-items: center; gap: 8px; color: var(--river); font-size: 10px; letter-spacing: .12em; }
 .card-route-meta i { width: 7px; height: 7px; border-radius: 50%; background: var(--river); box-shadow: 0 0 0 4px rgba(78,155,160,.15); }
-.index-card-body h2 { margin: 15px 0 7px; font-family: "Noto Serif KR", Georgia, serif; font-size: 30px; font-weight: 500; letter-spacing: -.07em; }
+.index-card-body h2 { margin: 15px 0 7px; font-family: "Nanum Myeongjo", serif; font-size: 30px; font-weight: 500; letter-spacing: -.07em; }
 .index-card-body p { margin: 0; color: var(--muted); font-size: 13px; }
 .index-card-bottom { display: flex; justify-content: space-between; align-items: center; min-height: 59px; color: var(--muted); font-size: 11px; }
 .index-card-bottom button { display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid var(--line); border-radius: 50%; background: transparent; transition: .18s ease; }
@@ -185,7 +185,7 @@ img { display: block; max-width: 100%; }
 .destination-note { background: var(--sand); border-top: 1px solid var(--line); }
 .destination-note-inner { display: grid; grid-template-columns: 200px 1fr; gap: 9vw; padding: 92px 0 105px; }
 .note-code { color: var(--vermilion); font-size: 10px; letter-spacing: .15em; }
-.destination-note h2 { margin: 0 0 23px; font-family: "Noto Serif KR", Georgia, serif; font-size: clamp(35px, 4vw, 57px); font-weight: 500; line-height: 1.17; letter-spacing: -.075em; }
+.destination-note h2 { margin: 0 0 23px; font-family: "Nanum Myeongjo", serif; font-size: clamp(35px, 4vw, 57px); font-weight: 500; line-height: 1.17; letter-spacing: -.075em; }
 .destination-note h2 em { color: var(--vermilion); font-style: normal; }
 .destination-note p { max-width: 440px; margin: 0 0 25px; color: var(--muted); font-size: 13px; line-height: 1.8; }
 @media (max-width: 900px) { .destinations-mast-inner { min-height: 420px; grid-template-columns: 1fr; gap: 27px; padding: 58px 0; } .chapter-code { flex-direction: row; justify-content: flex-start; gap: 24px; } .mast-route { position: absolute; right: 0; bottom: 63px; } .destination-index-section { padding: 52px 0 75px; } .guide-panel { flex-wrap: wrap; } .guide-panel span { width: 100%; } .destination-index-grid { gap: 42px 15px; } .index-card-media { height: 300px; } .destination-note-inner { grid-template-columns: 1fr; gap: 28px; padding: 66px 0 75px; } }
@@ -248,3 +248,10 @@ img { display: block; max-width: 100%; }
 .agent-badges { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; }
 .agent-badges span { display: inline-flex; align-items: center; gap: 7px; padding: 8px 13px; border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: rgba(255,255,255,.82); font-size: 11px; font-weight: 600; letter-spacing: .01em; }
 .agent-badges svg { color: #ff9b8b; }
+
+
+/* ===== 제목 폰트: 나눔명조 가중치 보정 ===== */
+.hero-copy h1, .mast-copy h1 { font-weight: 800; }
+.intro-copy h2, .section-head h2, .destination-heading h2, .theme-intro h2, .contact-cta h2, .destination-note h2, .index-card-body h2 { font-weight: 700; }
+.curated-copy h3, .destination-card h3, .theme-item h3, .search-rail-label strong { font-weight: 700; }
+.footer-grid > div:first-child p { font-weight: 400; }
